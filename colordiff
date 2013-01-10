@@ -1,0 +1,6 @@
+#!/bin/bash
+
+green=`echo -e '\e[32m'`
+red=`echo -e '\e[31m'`
+
+diff -u $@ | sed 's/^+/'"$green"'+/; s/^-/'"$red"'-/'
