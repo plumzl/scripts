@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Get a list of directories under fqlogs and rib folders that are more than 3
+# days old.
+
+for i in $@
+do
+    find $i -type d \( -regex ".*fqlogs/[0-9]+$" -o -path "*rib/*" \) -mtime +3 -not -empty -exec du -bs {} \; | awk '{ print $2; a += $1 } END { print a }'
+done
