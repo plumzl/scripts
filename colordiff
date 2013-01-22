@@ -1,6 +1,6 @@
 #!/bin/bash
 
-green=[32m
-red=[31m
+green=`printf '\e[32m'`
+red=`printf '\e[31m'`
 
 diff -u $@ | sed 's/^+/'"$green"'+/; s/^-/'"$red"'-/'
