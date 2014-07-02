@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Perform git pull --ff-only on all repositories under current directories
+
+for d in `find -type d -name .git`
+do
+    git_dir=`realpath $d`
+    echo $git_dir
+    git --git-dir=$git_dir pull --ff-only
+done
